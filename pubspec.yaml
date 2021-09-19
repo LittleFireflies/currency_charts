@@ -31,6 +31,8 @@ dependencies:
   equatable: ^2.0.3
   dartz: ^0.10.0
   flutter_bloc: ^7.2.0
+  syncfusion_flutter_charts: ^19.2.62
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
