@@ -3,6 +3,7 @@ import 'package:currency_charts/domain/entities/currency.dart';
 import 'package:currency_charts/domain/repositories/currency_repository.dart';
 import 'package:currency_charts/utils/exception.dart';
 import 'package:currency_charts/utils/failures.dart';
+import 'package:currency_charts/utils/interval.dart';
 import 'package:dartz/dartz.dart';
 
 class CurrencyRepositoryImpl implements CurrencyRepository {
@@ -11,9 +12,10 @@ class CurrencyRepositoryImpl implements CurrencyRepository {
   CurrencyRepositoryImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, Currency>> getCurrenciesData() async {
+  Future<Either<Failure, Currency>> getCurrenciesData(
+      {required ChartsInterval interval}) async {
     try {
-      final data = await apiService.getCurrencyData();
+      final data = await apiService.getCurrencyData(interval: interval);
       return Right(data.toEntity());
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message));

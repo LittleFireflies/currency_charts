@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:currency_charts/domain/entities/currency.dart';
 import 'package:currency_charts/domain/usecases/get_currencies_data.dart';
+import 'package:currency_charts/utils/interval.dart';
 import 'package:equatable/equatable.dart';
 
 part 'currency_event.dart';
@@ -19,7 +20,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
   ) async* {
     if (event is LoadCurrencyData) {
       yield LoadingCurrency();
-      final data = await getCurrenciesData.execute();
+      final data = await getCurrenciesData.execute(event.interval);
       yield* data.fold(
         (failure) async* {
           yield CurrencyError(failure.message);

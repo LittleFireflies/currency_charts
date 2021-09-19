@@ -8,6 +8,7 @@ import 'package:currency_charts/domain/entities/currency.dart' as _i6;
 import 'package:currency_charts/domain/repositories/currency_repository.dart'
     as _i3;
 import 'package:currency_charts/utils/failures.dart' as _i5;
+import 'package:currency_charts/utils/interval.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -31,8 +32,10 @@ class MockCurrencyRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Currency>> getCurrenciesData() =>
-      (super.noSuchMethod(Invocation.method(#getCurrenciesData, []),
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Currency>> getCurrenciesData(
+          {_i7.ChartsInterval? interval}) =>
+      (super.noSuchMethod(
+              Invocation.method(#getCurrenciesData, [], {#interval: interval}),
               returnValue: Future<_i2.Either<_i5.Failure, _i6.Currency>>.value(
                   _FakeEither_0<_i5.Failure, _i6.Currency>()))
           as _i4.Future<_i2.Either<_i5.Failure, _i6.Currency>>);

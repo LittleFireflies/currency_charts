@@ -7,4 +7,11 @@ abstract class CurrencyEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadCurrencyData extends CurrencyEvent {}
+class LoadCurrencyData extends CurrencyEvent {
+  final ChartsInterval interval;
+
+  LoadCurrencyData(this.interval);
+
+  @override
+  List<Object?> get props => [interval];
+}

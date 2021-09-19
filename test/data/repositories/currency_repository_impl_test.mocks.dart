@@ -6,6 +6,7 @@ import 'dart:async' as _i4;
 
 import 'package:currency_charts/data/api/api_service.dart' as _i3;
 import 'package:currency_charts/data/models/currency_dto.dart' as _i2;
+import 'package:currency_charts/utils/interval.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -27,8 +28,9 @@ class MockApiService extends _i1.Mock implements _i3.ApiService {
   }
 
   @override
-  _i4.Future<_i2.CurrencyDto> getCurrencyData() =>
-      (super.noSuchMethod(Invocation.method(#getCurrencyData, []),
+  _i4.Future<_i2.CurrencyDto> getCurrencyData({_i5.ChartsInterval? interval}) =>
+      (super.noSuchMethod(
+              Invocation.method(#getCurrencyData, [], {#interval: interval}),
               returnValue: Future<_i2.CurrencyDto>.value(_FakeCurrencyDto_0()))
           as _i4.Future<_i2.CurrencyDto>);
   @override
