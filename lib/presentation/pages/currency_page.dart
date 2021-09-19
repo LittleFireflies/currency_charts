@@ -11,9 +11,15 @@ class CurrencyPage extends StatefulWidget {
 }
 
 class _CurrencyPageState extends State<CurrencyPage> {
+  late TrackballBehavior _trackballBehavior;
+
   @override
   void initState() {
     super.initState();
+    _trackballBehavior = TrackballBehavior(
+      enable: true,
+      tooltipSettings: InteractiveTooltip(enable: true, color: Colors.red),
+    );
     context.read<CurrencyBloc>().add(LoadCurrencyData());
   }
 
@@ -51,6 +57,7 @@ class _CurrencyPageState extends State<CurrencyPage> {
                           yValueMapper: (CurrencyHistory history, _) =>
                               history.value)
                     ],
+                    trackballBehavior: _trackballBehavior,
                   ),
                 ],
               ),
