@@ -4,9 +4,11 @@
 
 import 'dart:async' as _i4;
 
-import 'package:currency_charts/domain/entities/currency.dart' as _i2;
+import 'package:currency_charts/domain/entities/currency.dart' as _i6;
 import 'package:currency_charts/domain/repositories/currency_repository.dart'
     as _i3;
+import 'package:currency_charts/utils/failures.dart' as _i5;
+import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -17,7 +19,7 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: unnecessary_parenthesis
 
-class _FakeCurrency_0 extends _i1.Fake implements _i2.Currency {}
+class _FakeEither_0<L, R> extends _i1.Fake implements _i2.Either<L, R> {}
 
 /// A class which mocks [CurrencyRepository].
 ///
@@ -29,10 +31,11 @@ class MockCurrencyRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Currency> getCurrenciesData() =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Currency>> getCurrenciesData() =>
       (super.noSuchMethod(Invocation.method(#getCurrenciesData, []),
-              returnValue: Future<_i2.Currency>.value(_FakeCurrency_0()))
-          as _i4.Future<_i2.Currency>);
+              returnValue: Future<_i2.Either<_i5.Failure, _i6.Currency>>.value(
+                  _FakeEither_0<_i5.Failure, _i6.Currency>()))
+          as _i4.Future<_i2.Either<_i5.Failure, _i6.Currency>>);
   @override
   String toString() => super.toString();
 }
