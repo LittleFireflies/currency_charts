@@ -12,6 +12,8 @@ class CurrencyPage extends StatefulWidget {
 
 class _CurrencyPageState extends State<CurrencyPage> {
   late TrackballBehavior _trackballBehavior;
+  List<String> _intervalOptions = ['1D', '1W', '1M', '6M'];
+  String _selectedInterval = '1D';
 
   @override
   void initState() {
@@ -59,6 +61,21 @@ class _CurrencyPageState extends State<CurrencyPage> {
                     ],
                     trackballBehavior: _trackballBehavior,
                   ),
+                  Center(
+                    child: Wrap(
+                      children: _intervalOptions
+                          .map((e) => ChoiceChip(
+                                label: Text(e),
+                                selected: _selectedInterval == e,
+                                onSelected: (selected) {
+                                  setState(() {
+                                    _selectedInterval = e;
+                                  });
+                                },
+                              ))
+                          .toList(),
+                    ),
+                  )
                 ],
               ),
             );
