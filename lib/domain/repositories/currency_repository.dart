@@ -1,3 +1,5 @@
 import 'package:currency_charts/domain/entities/currency.dart';
 
-abstract class CurrencyRepository {}
+abstract class CurrencyRepository {
+  Future<Currency> getCurrenciesData();
+}

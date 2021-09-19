@@ -2,8 +2,11 @@
 // in currency_charts/test/domain/usecases/get_currencies_data_test.dart.
 // Do not manually edit this file.
 
+import 'dart:async' as _i4;
+
+import 'package:currency_charts/domain/entities/currency.dart' as _i2;
 import 'package:currency_charts/domain/repositories/currency_repository.dart'
-    as _i2;
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -14,15 +17,22 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: unnecessary_parenthesis
 
+class _FakeCurrency_0 extends _i1.Fake implements _i2.Currency {}
+
 /// A class which mocks [CurrencyRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockCurrencyRepository extends _i1.Mock
-    implements _i2.CurrencyRepository {
+    implements _i3.CurrencyRepository {
   MockCurrencyRepository() {
     _i1.throwOnMissingStub(this);
   }
 
+  @override
+  _i4.Future<_i2.Currency> getCurrenciesData() =>
+      (super.noSuchMethod(Invocation.method(#getCurrenciesData, []),
+              returnValue: Future<_i2.Currency>.value(_FakeCurrency_0()))
+          as _i4.Future<_i2.Currency>);
   @override
   String toString() => super.toString();
 }
